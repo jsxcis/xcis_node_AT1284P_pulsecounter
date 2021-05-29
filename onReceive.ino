@@ -7,12 +7,12 @@ bool onReceive()
   {
     Serial.println((char*)buf);
     // Assume message is for me.
-    digitalWrite(LORA,0); 
+    digitalWrite(LORA,1); 
     //String response = "ID=,Name=Pulse,Value=" + String(accumulatedPulses) + ",Token=" + String(accumulatedDataToken) + ",";
     String response = "ID=" + node_id + ",B=" + getVoltage().substring(0,3) + ",V=" + String(accumulatedPulses) + ",T=" + String(accumulatedDataToken)  + ",";
     Serial.println(response); 
     sendMessage(response, from);
-    digitalWrite(LORA,1);
+    digitalWrite(LORA,0);
   }
   return true;
 }

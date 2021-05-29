@@ -41,7 +41,8 @@ RHMesh *manager;
 // Analog PIN for Sensor On Indicator
 #define SENSOR_ON A1
 // Analog PIN for LORA Active
-#define LORA A2
+//#define LORA A2
+#define LORA 0
 // Digital PIN for Pulse Inpit
 #define PULSE 10
 
@@ -69,7 +70,7 @@ void setup()
    digitalWrite(SENSOR_ON,1);
    
    pinMode(LORA,OUTPUT); // A2, PCI2 output LOW = ON LORA
-   digitalWrite(LORA,1);
+   digitalWrite(LORA,0);
     
    pinMode(RFM95_RST, OUTPUT); // LORA RESET
    digitalWrite(RFM95_RST, 1);
@@ -102,7 +103,7 @@ void setup()
     Serial.print(" Board:");
     Serial.println(board);
     digitalWrite(SENSOR_ON,0);
-    digitalWrite(LORA,1);
+    digitalWrite(LORA,0);
 }
 
 void loop()
